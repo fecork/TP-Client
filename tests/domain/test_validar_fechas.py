@@ -1,7 +1,7 @@
 import pytest
 from datetime import datetime
 
-from app.domine.servicio.validar_fechas import ValidarFechas
+from app.domine.service.validar_fechas import ValidarFechas
 from app.domine.modelo.arrendatario_dto import ArrendatarioDto
 
 

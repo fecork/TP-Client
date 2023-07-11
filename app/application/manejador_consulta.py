@@ -1,4 +1,4 @@
-from app.domine.servicio.consultar_pagos import ConsultarPagos
+from app.domine.service.consultar_pagos import ConsultarPagos
 from app.domine.excepciones.error_del_negocio import ErrorDelNegocio
 
 from app.infraestructure.adaptador.mysql.adaptador_mysql import AdaptadorMysql

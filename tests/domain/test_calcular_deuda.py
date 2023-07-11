@@ -1,14 +1,14 @@
 import logging
 from unittest.mock import Mock
-from app.domine.servicio.calcular_deuda import CalcularDeuda
+from app.domine.service.calcular_deuda import CalcularDeuda
 
 from app.domine.modelo.arrendatario_dto import ArrendatarioDto
 
 
 def test_calcular_deuda_pago_total():
     calcular = CalcularDeuda()
-    puerto = Mock()
-    puerto.consultar_pago.return_value = 500000
+    port = Mock()
+    port.consultar_pago.return_value = 500000
 
     identificacion = "123456789"
     codigo = "abc123"
@@ -17,15 +17,15 @@ def test_calcular_deuda_pago_total():
 
     arrendatario = ArrendatarioDto(identificacion, codigo, valor, fecha)
 
-    respuesta = calcular.calcular_deuda(arrendatario, puerto)
+    respuesta = calcular.calcular_deuda(arrendatario, port)
 
     assert respuesta == "gracias por pagar todo tu arriendo"
 
 
 def test_calcular_deuda_pago_parcial():
     calcular = CalcularDeuda()
-    puerto = Mock()
-    puerto.consultar_pago.return_value = 200000
+    port = Mock()
+    port.consultar_pago.return_value = 200000
 
     identificacion = "123456789"
     codigo = "abc123"
@@ -34,9 +34,9 @@ def test_calcular_deuda_pago_parcial():
 
     arrendatario = ArrendatarioDto(identificacion, codigo, valor, fecha)
 
-    respuesta = calcular.calcular_deuda(arrendatario, puerto)
+    respuesta = calcular.calcular_deuda(arrendatario, port)
 
-    deuda = arrendatario.valorPagado - puerto.consultar_pago.return_value
+    deuda = arrendatario.valorPagado - port.consultar_pago.return_value
 
     assert (
         respuesta

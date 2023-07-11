@@ -2,7 +2,7 @@ import abc
 from app.domine.modelo.arrendatario_dto import ArrendatarioDto
 
 
-class PuertoMysql(metaclass=abc.ABCMeta):
+class portMysql(metaclass=abc.ABCMeta):
     @abc.abstractmethod
     def prueba_base(
         self, arrendatario_dto: ArrendatarioDto

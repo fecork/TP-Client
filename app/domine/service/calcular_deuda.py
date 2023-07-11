@@ -4,13 +4,13 @@ from typing import TYPE_CHECKING
 
 
 if TYPE_CHECKING:
-    from app.domine.puerto.puerto_mysql import PuertoMysql
+    from app.domine.port.port_mysql import portMysql
 
 
 class CalcularDeuda:
-    def calcular_deuda(self, arrendatario, puerto: "PuertoMysql"):
+    def calcular_deuda(self, arrendatario, port: "portMysql"):
         arriendo_total = 1000000
-        pago_actual = puerto.consultar_pago(self, arrendatario)
+        pago_actual = port.consultar_pago(self, arrendatario)
 
         abono_actual = arrendatario.valorPagado
         total_pagado = pago_actual + abono_actual

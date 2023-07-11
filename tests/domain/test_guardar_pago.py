@@ -1,12 +1,12 @@
 import logging
 from unittest.mock import Mock
-from app.domine.servicio.guardar_pago import GuardarPago
+from app.domine.service.guardar_pago import GuardarPago
 from app.domine.modelo.arrendatario_dto import ArrendatarioDto
 
 
 def test_guardar_pago():
     guardar = GuardarPago()
-    puerto = Mock()
+    port = Mock()
 
     identificacion = "123456789"
     codigo = "abc123"
@@ -15,16 +15,16 @@ def test_guardar_pago():
 
     arrendatario = ArrendatarioDto(identificacion, codigo, valor, fecha)
 
-    puerto.servicio.return_value = None
+    port.service.return_value = None
 
-    res = guardar.servicio(arrendatario, puerto)
+    res = guardar.service(arrendatario, port)
 
     assert res == None
 
 
 def test_consultar():
     guardar = GuardarPago()
-    puerto = Mock()
+    port = Mock()
 
     identificacion = "123456789"
     codigo = "abc123"
@@ -33,16 +33,16 @@ def test_consultar():
 
     arrendatario = ArrendatarioDto(identificacion, codigo, valor, fecha)
 
-    puerto.consultar_pago.return_value = None
+    port.consultar_pago.return_value = None
 
-    res = guardar.consultar(arrendatario, puerto)
+    res = guardar.consultar(arrendatario, port)
 
     assert res == None
 
 
 def test_actualizar():
     guardar = GuardarPago()
-    puerto = Mock()
+    port = Mock()
 
     identificacion = "123456789"
     codigo = "abc123"
@@ -51,8 +51,8 @@ def test_actualizar():
 
     arrendatario = ArrendatarioDto(identificacion, codigo, valor, fecha)
 
-    puerto.actualizar_pago.return_value = None
+    port.actualizar_pago.return_value = None
 
-    res = guardar.actualizar(arrendatario, puerto)
+    res = guardar.actualizar(arrendatario, port)
 
     assert res == None

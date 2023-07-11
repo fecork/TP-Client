@@ -1,13 +1,13 @@
 import logging
 from unittest.mock import Mock
-from app.domine.servicio.consultar_pagos import ConsultarPagos
+from app.domine.service.consultar_pagos import ConsultarPagos
 
 from app.domine.modelo.arrendatario_dto import ArrendatarioDto
 
 
 def test_calcular_deuda_pago_total():
     consultar = ConsultarPagos()
-    puerto = Mock()
+    port = Mock()
     respuesta = [
         {
             "documentoIdentificacionArrendatario": 111,
@@ -22,8 +22,8 @@ def test_calcular_deuda_pago_total():
             "valorPagado": 1000000,
         },
     ]
-    puerto.consultar_totalidad_pagos.return_value = respuesta
+    port.consultar_totalidad_pagos.return_value = respuesta
 
-    res = consultar.consultar_pagos(puerto)
+    res = consultar.consultar_pagos(port)
 
     assert type(res) == list

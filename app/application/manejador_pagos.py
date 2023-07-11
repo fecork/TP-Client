@@ -1,7 +1,7 @@
-from app.domine.servicio.guardar_pago import GuardarPago
-from app.domine.servicio.validar_fechas import ValidarFechas
+from app.domine.service.guardar_pago import GuardarPago
+from app.domine.service.validar_fechas import ValidarFechas
 from app.domine.excepciones.error_del_negocio import ErrorDelNegocio
-from app.domine.servicio.calcular_deuda import CalcularDeuda
+from app.domine.service.calcular_deuda import CalcularDeuda
 
 from app.infraestructure.adaptador.mysql.adaptador_mysql import AdaptadorMysql
 
@@ -30,7 +30,7 @@ class ManejadorPagos:
             return error_del_negocio.respuesta_error(400, "impar")
 
         if existe_arrendatario is False:
-            guardar.servicio(arrendatario, adaptador)
+            guardar.service(arrendatario, adaptador)
             return calcular_deuda.calcular_deuda(arrendatario, adaptador)
 
         if existe_arrendatario is not False:

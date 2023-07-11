@@ -4,16 +4,16 @@ import os
 import logging
 import datetime
 
-from app.domine.puerto.puerto_mysql import PuertoMysql
+from app.domine.port.port_mysql import portMysql
 from app.domine.modelo.arrendatario_dto import ArrendatarioDto
-from app.domine.servicio.validar_fechas import ValidarFechas
+from app.domine.service.validar_fechas import ValidarFechas
 from dotenv import load_dotenv
 
 
 load_dotenv()
 
 
-class AdaptadorMysql(PuertoMysql):
+class AdaptadorMysql(portMysql):
     def __init__(self):
         self.respuesta = {}
 
