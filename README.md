@@ -42,9 +42,9 @@ Iniciamos el entorno de trabajo:
 
     pipenv shell
 
-Iniciamos el service en el port 8084, en modo desarrollador:
+Iniciamos el service en el port 3000, en modo desarrollador:
 
-    uvicorn app.main:app --port 8084 --reload
+    uvicorn app.main:app --port 3000 --reload
 
 para ver la documentación de la API podemos ingresar a
 http://localhost:8084/docs.

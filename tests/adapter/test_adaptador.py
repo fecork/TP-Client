@@ -1,8 +1,8 @@
-# from app.infraestructure.adaptador.inmemory_vote_repository import (
+# from app.infraestructure.adapter.inmemory_vote_repository import (
 #     InMemoryVoteRepository,
 # )
 
-from app.infraestructure.adaptador.mysql.adaptador_mysql import AdaptadorMysql
+from app.infraestructure.adapter.mysql.adapter_mysql import adapterMysql
 from app.domine.modelo.arrendatario_dto import ArrendatarioDto
 
 # from app.domine.modelo.vote import Vote
@@ -11,14 +11,14 @@ from app.domine.modelo.arrendatario_dto import ArrendatarioDto
 def test_vote_save():
     # vote = Vote()
     # vote_repository = InMemoryVoteRepository()
-    adaptador = AdaptadorMysql()
+    adapter = adapterMysql()
     identificacion = "123456789"
     codigo = "abc123"
     valor = 500000
     fecha = "2020-01-01"
 
     arrendatario = ArrendatarioDto(identificacion, codigo, valor, fecha)
-    assert isinstance(adaptador, AdaptadorMysql)
+    assert isinstance(adapter, adapterMysql)
 
 
 #     assert vote.save(vote_repository).vote_id == vote.vote_id

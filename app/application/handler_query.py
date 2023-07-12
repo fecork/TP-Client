@@ -1,14 +1,14 @@
 from fastapi.logger import logger
 from app.domine.service.search_cognitive import SearchCognitive
 from app.domine.excepciones.error_del_negocio import ErrorDelNegocio
-from app.infraestructure.adaptador.cognitive_search_adapter import (
+from app.infraestructure.adapter.cognitive_search_adapter import (
     CognitiveSearchAdapter,
 )
 
 from app.domine.modelo.input_data_dto import InputDataDto
 
 query = SearchCognitive()
-adaptador = CognitiveSearchAdapter()
+adapter = CognitiveSearchAdapter()
 error_del_negocio = ErrorDelNegocio()
 
 
@@ -22,8 +22,8 @@ class HandlerQuery:
         logger.warning(__name__)
         logger.warning(f"input_data: {input_data}")
         pregunta = input_data["question"]
-        return query.execute_service(pregunta, adaptador)
-        # return consultar.consultar_pagos(adaptador)
+        return query.execute_service(pregunta, adapter)
+        # return consultar.consultar_pagos(adapter)
         # cognitive_response = query_cognitive_search(question)
         # text_to_gpt = cognitive_response["text"]
         # indexed_document = cognitive_response["document"]

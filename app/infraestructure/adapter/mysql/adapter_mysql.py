@@ -13,7 +13,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-class AdaptadorMysql(portMysql):
+class adapterMysql(portMysql):
     def __init__(self):
         self.respuesta = {}
 
@@ -51,7 +51,6 @@ class AdaptadorMysql(portMysql):
         conexion.close()
 
     def insertar(self, data, arrendatario):
-
         query = (
             "INSERT INTO `pagos` (documentoIdentificacionArrendatario,"
             " codigoInmueble, fechaPago, ValorPagado) VALUES (%s, %s, %s, %s)"
@@ -82,7 +81,6 @@ class AdaptadorMysql(portMysql):
 
     def consultar_pago(self, data, arrendatario):
         try:
-
             cursor = self.buscar_arrendatario(self, arrendatario)
             cursor.fetchone
             for pago in cursor.fetchone():
@@ -90,7 +88,6 @@ class AdaptadorMysql(portMysql):
 
             return pago
         except Exception as e:
-
             return False
 
     def buscar_arrendatario(self, data, arrendatario):

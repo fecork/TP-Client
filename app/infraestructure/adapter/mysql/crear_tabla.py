@@ -1,6 +1,6 @@
 import os
 import pymysql
-from app.infraestructure.adaptador.mysql.crear_db import establecer_conexion
+from app.infraestructure.adapter.mysql.crear_db import establecer_conexion
 from dotenv import load_dotenv
 
 
