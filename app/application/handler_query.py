@@ -5,6 +5,7 @@ from app.infraestructure.adaptador.cognitive_search_adapter import (
     CognitiveSearchAdapter,
 )
 
+from app.domine.modelo.input_data_dto import InputDataDto
 
 query = SearchCognitive()
 adaptador = CognitiveSearchAdapter()
@@ -12,12 +13,15 @@ error_del_negocio = ErrorDelNegocio()
 
 
 class HandlerQuery:
-    def execute(self):
+    def execute(self, input_data):
         """
         execute HandlerQuery
+        Args: input_data
+        Returns: query.execute_service
         """
         logger.warning(__name__)
-        pregunta = "¿Cuánto debo pagar?"
+        logger.warning(f"input_data: {input_data}")
+        pregunta = input_data["question"]
         return query.execute_service(pregunta, adaptador)
         # return consultar.consultar_pagos(adaptador)
         # cognitive_response = query_cognitive_search(question)
