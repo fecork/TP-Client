@@ -1,4 +1,4 @@
-from fastapi.logger import logger
+import logging
 from typing import TYPE_CHECKING
 
 
@@ -11,7 +11,7 @@ class SearchCognitive:
     SearchCognitive class
     """
 
-    logger.warning(__name__)
+    logging.warning(__name__)
 
     def execute_service(self, question, port: "CognitiveSearchPort"):
         """

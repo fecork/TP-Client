@@ -1,42 +1,49 @@
-from fastapi.logger import logger
+import logging
 from app.domine.service.search_cognitive import SearchCognitive
+from app.domine.service.clean_text import clean_text
 from app.domine.excepciones.error_del_negocio import ErrorDelNegocio
 from app.infraestructure.adapter.cognitive_search_adapter import (
     CognitiveSearchAdapter,
 )
+from app.infraestructure.adapter.openai_adapter import OpenAIAdapter
 
-from app.domine.modelo.input_data_dto import InputDataDto
+from app.domine.modelo.output_data_dto import OutputDataDto
 
 query = SearchCognitive()
-adapter = CognitiveSearchAdapter()
+adapter_cs = CognitiveSearchAdapter()
+adapter_gpt = OpenAIAdapter()
 error_del_negocio = ErrorDelNegocio()
 
 
 class HandlerQuery:
-    def execute(self, input_data):
+    def execute(self, input_data) -> OutputDataDto:
         """
         execute HandlerQuery
         Args: input_data
         Returns: query.execute_service
         """
-        logger.warning(__name__)
-        logger.warning(f"input_data: {input_data}")
-        pregunta = input_data["question"]
-        return query.execute_service(pregunta, adapter)
-        # return consultar.consultar_pagos(adapter)
-        # cognitive_response = query_cognitive_search(question)
-        # text_to_gpt = cognitive_response["text"]
-        # indexed_document = cognitive_response["document"]
+        logging.warning(__name__)
+        logging.warning(f"input_data: {input_data}")
+        question = input_data["question"]
+        cognitive_response = query.execute_service(question, adapter_cs)
 
-        # # text_to_gpt = summarizer(indexed_text)
+        text_to_gpt = cognitive_response["text"]
+        indexed_document = cognitive_response["document"]
 
-        # gpt_response = ask_openai(question, text_to_gpt, "question")
+        gpt_response = adapter_gpt.ask_openai(
+            question, text_to_gpt, "question"
+        )
+        # indexed_document to list
+        indexed_document = clean_text(indexed_document)
 
-        # print("====================")
-        # print("buscamos el texto indexado: ")
-        # print(cognitive_response)
-        # print("====================")
+        indexed_document = indexed_document.split(",")
 
-        # print("RESPUESTA DE GPT-3")
-        # print(f"de acuerdo a {indexed_document}")
-        # print(gpt_response)
+        logging.info("====================")
+        logging.info("buscamos el texto indexado: ")
+        logging.info(cognitive_response)
+        logging.info("====================")
+
+        logging.info("RESPUESTA DE GPT-3")
+        logging.info(f"de acuerdo a {indexed_document}")
+        logging.info(gpt_response)
+        return OutputDataDto(gpt_response, indexed_document)

@@ -3,4 +3,4 @@ from dataclasses import dataclass
 
 @dataclass
 class InputDataDto:
-    question: str
+    input_data: dict[any, any]
