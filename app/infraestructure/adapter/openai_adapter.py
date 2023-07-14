@@ -1,9 +1,7 @@
-import logging
-import os
 import openai
 import logging
 
-from app.domine.port.cognitve_search_port import CognitiveSearchPort
+from app.domain.port.openai_port import OpenAIPort
 from app.infraestructure.adapter.config import Config
 from dotenv import load_dotenv
 
@@ -21,7 +19,7 @@ class OpenAIAdapter:
     def __init__(self):
         self.respuesta = {}
 
-    def ask_openai(self, question: str, text: str, task: str) -> dict:
+    def ask_openai(self, question: str, text: str, task: str):
         """
         This is a function for
         ask question to AZURE GPT by OpenAI.
@@ -42,7 +40,7 @@ class OpenAIAdapter:
         instrucciones = config["instrucciones"]
 
         response = openai.ChatCompletion.create(
-            engine=config["engine"],  # engine = "deployment_name".
+            engine=config["engine"],
             messages=[
                 {
                     "role": "system",

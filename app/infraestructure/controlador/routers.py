@@ -3,8 +3,8 @@ from fastapi import APIRouter, Request
 
 
 from app.application.handler_query import HandlerQuery
-from app.domine.modelo.output_data_dto import OutputDataDto
-from app.domine.modelo.input_data_dto import InputDataDto
+from app.domain.modelo.output_data_dto import OutputDataDto
+from app.domain.modelo.input_data_dto import InputDataDto
 
 
 handler_query = HandlerQuery()

@@ -12,4 +12,6 @@ def clean_text(text: str):
     # quitar corchetes
     text = text.replace("[", "")
     text = text.replace("]", "")
+    # quitar espacios excedentes
+    text = re.sub(r"\s+", " ", text)
     return text

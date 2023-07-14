@@ -1,5 +1,5 @@
 import abc
-from app.domine.modelo.input_data_dto import InputDataDto
+from app.domain.modelo.input_data_dto import InputDataDto
 
 
 class CognitiveSearchPort(metaclass=abc.ABCMeta):
