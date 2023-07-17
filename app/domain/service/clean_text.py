@@ -8,7 +8,7 @@ def clean_text(text: str):
     Returns: text
     """
     text = re.sub(r"\.{2,}", ".", text)
-    text = text.replace(r"\n", " ", text)
+    text = text.replace("\n", " ")
     # quitar corchetes
     text = text.replace("[", "")
     text = text.replace("]", "")
