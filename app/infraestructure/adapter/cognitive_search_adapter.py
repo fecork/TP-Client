@@ -49,7 +49,6 @@ class CognitiveSearchAdapter:
                 list_texts = []
                 for answer in answers:
                     list_texts.append(answer["text"])
-                    highlights = answer["highlights"]
 
                 text = clean_text("\n".join(list_texts))
                 return {"text": text, "document": str(list_desencript)}
@@ -59,13 +58,7 @@ class CognitiveSearchAdapter:
 
         except KeyError:
             answers = value[0]["merged_content"]
-            if len(answers) != 0:
-                return {
-                    "text": clean_text(answers),
-                    "document": str(list_desencript),
-                }
-            else:
-                return {
-                    "text": clean_text(answers),
-                    "document": str(list_desencript),
-                }
+            return {
+                "text": clean_text(answers),
+                "document": str(list_desencript),
+            }
