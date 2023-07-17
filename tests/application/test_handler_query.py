@@ -1,6 +1,6 @@
 from unittest.mock import Mock
-from app.application.handler_query import HandlerQuery
-from app.domain.modelo.output_data_dto import OutputDataDto
+from application.handler_query import HandlerQuery
+from domain.modelo.output_data_dto import OutputDataDto
 
 
 class TestHandlerQuery:

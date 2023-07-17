@@ -1,5 +1,5 @@
 import abc
-from app.domain.modelo.input_data_dto import InputDataDto
+from domain.modelo.input_data_dto import InputDataDto
 
 
 class OpenAIPort(metaclass=abc.ABCMeta):

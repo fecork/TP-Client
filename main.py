@@ -1,8 +1,8 @@
 import uvicorn
 
 from fastapi import FastAPI
-from app.infraestructure.controlador import routers
-from app.infraestructure.adapter.openai_start import login_openai
+from infraestructure.controlador import routers
+from infraestructure.adapter.openai_start import login_openai
 
 app = FastAPI()
 

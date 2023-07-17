@@ -1,14 +1,14 @@
 import logging
-from app.domain.service.search_cognitive import SearchCognitive
-from app.domain.service.ask_generate import AskGenerate
-from app.domain.service.clean_text import clean_text
-from app.domain.excepciones.error_del_negocio import ErrorDelNegocio
-from app.infraestructure.adapter.cognitive_search_adapter import (
+from domain.service.search_cognitive import SearchCognitive
+from domain.service.ask_generate import AskGenerate
+from domain.service.clean_text import clean_text
+from domain.excepciones.error_del_negocio import ErrorDelNegocio
+from infraestructure.adapter.cognitive_search_adapter import (
     CognitiveSearchAdapter,
 )
-from app.infraestructure.adapter.openai_adapter import OpenAIAdapter
+from infraestructure.adapter.openai_adapter import OpenAIAdapter
 
-from app.domain.modelo.output_data_dto import OutputDataDto
+from domain.modelo.output_data_dto import OutputDataDto
 
 query_cs = SearchCognitive()
 adapter_cs = CognitiveSearchAdapter()

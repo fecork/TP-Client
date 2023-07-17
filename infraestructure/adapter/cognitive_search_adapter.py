@@ -3,9 +3,9 @@ import os
 import logging
 
 from dotenv import load_dotenv
-from app.domain.service.decrypt_64 import desencriptar
-from app.domain.service.clean_text import clean_text
-from app.infraestructure.adapter.config import Config
+from domain.service.decrypt_64 import desencriptar
+from domain.service.clean_text import clean_text
+from infraestructure.adapter.config import Config
 
 
 load_dotenv()

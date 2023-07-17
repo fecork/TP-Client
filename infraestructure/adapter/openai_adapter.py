@@ -1,8 +1,8 @@
 import openai
 import logging
 
-from app.domain.port.openai_port import OpenAIPort
-from app.infraestructure.adapter.config import Config
+from domain.port.openai_port import OpenAIPort
+from infraestructure.adapter.config import Config
 from dotenv import load_dotenv
 
 
