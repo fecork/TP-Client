@@ -1,6 +1,3 @@
-from dis import Instruction
-
-
 class Config(object):
     def __init__(self):
         self.respuesta = {}
