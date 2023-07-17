@@ -12,3 +12,4 @@ sniffio==1.2.0
 starlette==0.17.1
 typing-extensions==4.2.0
 uvicorn==0.17.6
+requests
