@@ -1,5 +1,5 @@
 import logging
-from fastapi import APIRouter, Request
+from fastapi import APIRouter
 
 
 from application.handler_query import HandlerQuery
@@ -14,7 +14,12 @@ api = "generate"
 
 
 @router.post(f"/{api}/chat", response_model=object)
-async def query_cognitive(request: Request) -> OutputDataDto:
+async def query_cognitive(request: InputDataDto) -> OutputDataDto:
+    """
+    Route query_cognitive
+    Args: request InputDataDto that contains question
+    Returns: handler_query.execute
+    """
     logging.warning(__name__)
-    data = await request.json()
+    data = request.dict()
     return handler_query.execute(data)

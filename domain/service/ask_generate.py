@@ -3,12 +3,12 @@ from typing import TYPE_CHECKING
 
 
 if TYPE_CHECKING:
-    from app.domain.port.openai_port import OpenAIPort
+    from domain.port.openai_port import OpenAIPort
 
 
 class AskGenerate:
     """
-    SearchCognitive class
+    AskGenerate class
     """
 
     logging.warning(__name__)

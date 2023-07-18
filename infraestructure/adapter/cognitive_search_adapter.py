@@ -3,7 +3,7 @@ import os
 import logging
 
 from dotenv import load_dotenv
-from domain.service.decrypt_64 import desencriptar
+from domain.service.decrypt_64 import descrypt
 from domain.service.clean_text import clean_text
 from infraestructure.adapter.config import Config
 
@@ -17,6 +17,11 @@ class CognitiveSearchAdapter:
         self.respuesta = {}
 
     def query_cognitive_search(self, question) -> dict:
+        """
+        Adapter to query cognitive search
+        Args: question
+        Returns: response.json
+        """
         logging.warning(__name__)
         service_name = os.environ.get("CS_SERVICE_NAME")
         api_key = os.environ.get("CS_API_KEY")
@@ -41,7 +46,7 @@ class CognitiveSearchAdapter:
 
         list_desencript = []
         for document in list_documents:
-            list_desencript.append(desencriptar(str(document)))
+            list_desencript.append(descrypt(str(document)))
 
         try:
             answers = result["@search.answers"]

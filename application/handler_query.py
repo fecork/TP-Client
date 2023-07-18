@@ -18,7 +18,7 @@ error_del_negocio = ErrorDelNegocio()
 
 
 class HandlerQuery:
-    def execute(self, input_data) -> OutputDataDto:
+    def execute(self, input_data: dict) -> OutputDataDto:
         """
         execute HandlerQuery
         Args: input_data
@@ -38,12 +38,14 @@ class HandlerQuery:
         indexed_document = clean_text(indexed_document)
         indexed_document = indexed_document.split(",")
 
-        logging.info("====================")
-        logging.info("buscamos el texto indexado: ")
-        logging.info(cognitive_response)
-        logging.info("====================")
+        logging.warning("====================")
+        logging.warning("buscamos el texto indexado: ")
+        logging.warning(cognitive_response)
+        logging.warning("====================")
 
-        logging.info("RESPUESTA DE GPT-3")
-        logging.info(f"de acuerdo a {indexed_document}")
-        logging.info(gpt_response)
-        return OutputDataDto(gpt_response, indexed_document)
+        logging.warning("RESPUESTA DE GPT-3")
+        logging.warning(">>>>>>>>>>>>>>>>>>>>>>>>>>")
+        logging.warning(f"de acuerdo a {indexed_document}")
+        logging.warning(gpt_response)
+        logging.warning(">>>>>>>>>>>>>>>>>>>>>>>>>>")
+        return OutputDataDto(response=gpt_response, document=indexed_document)

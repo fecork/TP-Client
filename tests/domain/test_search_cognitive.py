@@ -1,5 +1,5 @@
 from unittest.mock import MagicMock
-from app.domain.service.search_cognitive import SearchCognitive
+from domain.service.search_cognitive import SearchCognitive
 
 
 class TestSearchCognitive:

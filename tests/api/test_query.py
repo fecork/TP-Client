@@ -1,7 +1,7 @@
 import json
 from fastapi.testclient import TestClient
 from fastapi.encoders import jsonable_encoder
-from app.main import app
+from main import app
 
 client = TestClient(app)
 

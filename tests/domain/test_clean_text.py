@@ -1,5 +1,5 @@
 import pytest
-from app.domain.service.clean_text import clean_text
+from domain.service.clean_text import clean_text
 
 
 def test_clean_text():

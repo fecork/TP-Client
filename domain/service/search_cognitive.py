@@ -3,7 +3,7 @@ from typing import TYPE_CHECKING
 
 
 if TYPE_CHECKING:
-    from app.domain.port.cognitve_search_port import CognitiveSearchPort
+    from domain.port.cognitve_search_port import CognitiveSearchPort
 
 
 class SearchCognitive:

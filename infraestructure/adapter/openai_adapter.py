@@ -1,7 +1,6 @@
 import openai
 import logging
 
-from domain.port.openai_port import OpenAIPort
 from infraestructure.adapter.config import Config
 from dotenv import load_dotenv
 
@@ -23,6 +22,8 @@ class OpenAIAdapter:
         """
         This is a function for
         ask question to AZURE GPT by OpenAI.
+        Args: question, text, task
+        Returns: response
         """
         logging.warning("Executing ask_openai")
         config = Config().openai(text)

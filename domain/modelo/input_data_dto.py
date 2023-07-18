@@ -1,6 +1,11 @@
-from dataclasses import dataclass
+from pydantic import BaseModel
 
 
-@dataclass
-class InputDataDto:
-    input_data: dict[any, any]
+class InputDataDto(BaseModel):
+    """
+    Class InputDataDto
+    Args: BaseModel
+    Returns: str
+    """
+
+    question: str

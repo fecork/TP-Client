@@ -1,5 +1,5 @@
 from unittest.mock import Mock
-from app.domain.service.ask_generate import AskGenerate
+from domain.service.ask_generate import AskGenerate
 
 
 def test_ask_generate_execute_service():

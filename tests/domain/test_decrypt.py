@@ -1,8 +1,8 @@
 import pytest
-from app.domain.service.decrypt_64 import desencriptar
+from domain.service.decrypt_64 import descrypt
 
 
-def test_desencriptar():
+def test_descrypt():
     data = "SGVsbG8gV29ybGQ="
     expected_output = "Hello World"
-    assert desencriptar(data) == expected_output
+    assert descrypt(data) == expected_output

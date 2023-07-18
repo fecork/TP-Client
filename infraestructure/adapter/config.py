@@ -3,6 +3,11 @@ class Config(object):
         self.respuesta = {}
 
     def cognitive_search(self, question):
+        """
+        Config cognitive search
+        Args: question
+        Returns: params
+        """
         return {
             "api-version": "2023-07-01-Preview",
             "search": question,
@@ -15,6 +20,11 @@ class Config(object):
         }
 
     def openai(self, text):
+        """
+        Config openai
+        Args: text
+        Returns: config
+        """
         config = {}
         prompt = """busca la información en el texto entregado entre ### ### y
                 responde la pregunta de acuerdo al texto"""

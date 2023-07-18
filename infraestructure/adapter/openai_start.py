@@ -5,7 +5,8 @@ import logging
 
 def login_openai() -> dict:
     """
-    This is a function for  login to openai.
+    This is a function for login to openai.
+    Returns: openai.api_key
     """
     logging.warning("Executing login_openai")
     try:

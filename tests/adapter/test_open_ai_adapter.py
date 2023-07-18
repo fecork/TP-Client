@@ -3,8 +3,8 @@ import pytest
 import openai
 from unittest.mock import patch
 
-from app.infraestructure.adapter.openai_adapter import OpenAIAdapter
-from app.infraestructure.adapter.openai_start import login_openai
+from infraestructure.adapter.openai_adapter import OpenAIAdapter
+from infraestructure.adapter.openai_start import login_openai
 
 openai_adapter = OpenAIAdapter()
 
